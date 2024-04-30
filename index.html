@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprinkle of Flavor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Sprinkle of Flavor</h1>
+        <nav>
+            <ul class="right-nav">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+            <ul class="left-nav">
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+           
+        </nav>
+    </header>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for recipes...">
+        <button type="button" onclick="searchRecipes()">Search</button>
+    </div>
+    <main>
+        <section class="categories">
+            <h2>Recipe Categories</h2>
+            <div class="category">
+                <a href="appetizer.html">
+                    <img src="Veggie board.jpeg" alt="Appetizers">
+                    <span>Appetizers</span>
+                </a>
+            </div>
+            <div class="category">
+                <a href="main course.html">
+                    <img src="main course.jpeg" alt="Main Courses">
+                    <span>Main Courses</span>
+                </a>
+            </div>
+            <div class="category">
+                <a href="dessert.html">
+                    <img src="dessert.jpeg" alt="Desserts">
+                    <span>Desserts</span>
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Sprinkle of Flavor</p>
+    </footer>
+
+    <!-- JavaScript for search functionality -->
+    <script>
+        function searchRecipes() {
+            var input, filter, section, ul, li, a, i, txtValue;
+            input = document.getElementById('searchInput');
+            filter = input.value.toUpperCase();
+            section = document.getElementsByClassName('featured-recipes')[0];
+            ul = section.getElementsByTagName('ul')[0];
+            li = ul.getElementsByTagName('li');
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName('a')[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = '';
+                } else {
+                    li[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
